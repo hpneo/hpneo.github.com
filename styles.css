@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif;
+  font-size: 62.7%;
+  background: url(http://subtlepatterns.com/patterns/exclusive_paper.png);
+}
+
+#header {
+  display: block;
+  background: url('images/color-bubbles.jpg') center center;
+  font-size: 2em;
+  margin: 0;
+  padding: 20px;
+  box-shadow: inset 0 0 40px 10px #111;
+}
+
+#header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#header h1,
+#header h2,
+#header h3 {
+  display: inline-block;
+  color: #fff;
+  margin: 0;
+  font-family: 'Capriola';
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#header h1 {
+  font-family: 'Source Sans Pro';
+  text-transform: uppercase;
+  font-size: 2em;
+  letter-spacing: 0.5em;
+  padding: 20px 40px;
+}
+
+#header h2,
+#header h3 {
+  padding: 10px 30px;
+  opacity: 0.8;
+}
+#header h3 {
+  opacity: 0.6;
+}
+
+#header #nav {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  text-align: right;
+  color: #fff;
+}
+#header #nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9em;
+  font-family: 'Source Sans Pro';
+}
+
+#body {
+  font-size: 2em;
+  padding: 20px;
+}
+
+#body #body_nav {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+}
+#body #body_nav li {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+#body #body_nav a {
+  display: block;
+  background: rgb(0, 0, 0);
+  color: #fff;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: lowercase;
+}
+#body #body_nav a:hover {
+  opacity: 0.9;
+}
+#body #body_nav a.blue {
+  background: rgb(64, 69, 134);
+}
+#body #body_nav a.red {
+  background: rgb(156,16,16);
+}
+#body #body_nav a.green {
+  background: rgb(86, 169, 80);
+}
+#body #body_nav a.orange {
+  background: rgb(193,133,20);
+}
