@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: Helvetica, sans-serif;
   font-size: 62.7%;
-  background: url(http://subtlepatterns.com/patterns/exclusive_paper.png);
+  background: url('images/exclusive_paper.png');
 }
 
 #header {
@@ -27,7 +27,6 @@ body {
   color: #fff;
   margin: 0;
   font-family: 'Capriola';
-  background: rgba(0, 0, 0, 0.7);
 }
 
 #header h1 {
@@ -36,15 +35,16 @@ body {
   font-size: 2em;
   letter-spacing: 0.5em;
   padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 #header h2,
 #header h3 {
   padding: 10px 30px;
-  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.6);
 }
 #header h3 {
-  opacity: 0.6;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 #header #nav {
@@ -69,6 +69,7 @@ body {
 
 #body #body_nav {
   display: block;
+  float: left;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -103,4 +104,50 @@ body {
 }
 #body #body_nav a.orange {
   background: rgb(193,133,20);
+}
+
+#content {
+  display: block;
+  float: left;
+}
+
+#content .slide {
+  width: 960px;
+  height: 400px;
+  overflow: hidden;
+  background: url('images/exclusive_paper.png');
+  box-shadow: 0 0 20px 0 #666;
+  background-size: 105%;
+  margin: 0 40px 20px 40px;
+  position: relative;
+}
+
+#content .slide#slide-doublefeature {
+  background: url('images/projects/doublefeature.png') no-repeat;
+}
+#content .slide#slide-vaope {
+  background: url('images/projects/vaope.jpg') no-repeat;
+}
+#content .slide#slide-houseisgod {
+  background: url('images/projects/houseisgod.jpg') no-repeat;
+}
+#content .slide#slide-gmaps {
+  background: url('images/projects/gmaps.png') no-repeat;
+}
+#content .slide#slide-astaire {
+  background: url('images/projects/astaire.png') no-repeat;
+}
+
+#content .slide h4 {
+  display: block;
+  width: 100%;
+  position: absolute;
+  font-size: 32px;
+  margin: 0;
+  bottom: 40px;
+  padding: 10px 30px;
+  background: rgba(20, 23, 40, 0.9);
+  font-family: 'Source Sans Pro';
+  font-weight: lighter;
+  color: #fff;
 }
