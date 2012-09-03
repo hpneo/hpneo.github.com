@@ -109,16 +109,18 @@ body {
 #content {
   display: block;
   float: left;
+  margin-left: 40px;
 }
 
 #content .slide {
-  width: 960px;
+  width: 940px;
   height: 400px;
   overflow: hidden;
   background: url('images/exclusive_paper.png');
   box-shadow: 0 0 20px 0 #666;
   background-size: 105%;
-  margin: 0 40px 20px 40px;
+  margin: 0;
+  margin-bottom: 20px;
   position: relative;
 }
 
