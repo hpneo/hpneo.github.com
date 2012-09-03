@@ -122,6 +122,7 @@ body {
   margin: 0;
   margin-bottom: 20px;
   position: relative;
+  border-radius: 2px;
 }
 
 #content .slide#slide-doublefeature {
@@ -138,6 +139,9 @@ body {
 }
 #content .slide#slide-astaire {
   background: url('images/projects/astaire.png') no-repeat;
+}
+#content .slide#slide-roccola {
+  background: url('images/projects/roccola.png') no-repeat;
 }
 
 #content .slide h4 {
