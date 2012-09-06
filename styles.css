@@ -143,6 +143,9 @@ body {
 #content .slide#slide-roccola {
   background: url('images/projects/roccola.png') no-repeat;
 }
+#content .slide#slide-brazilianmedical {
+  background: url('images/projects/brazilianmedical.png') no-repeat;
+}
 
 #content .slide h4 {
   display: block;
