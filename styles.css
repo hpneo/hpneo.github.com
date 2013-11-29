@@ -94,16 +94,16 @@ body {
   opacity: 0.9;
 }
 #body #body_nav a.blue {
-  background: rgb(64, 69, 134);
+  background: #2980b9;
 }
 #body #body_nav a.red {
-  background: rgb(156,16,16);
+  background: #c0392b;
 }
 #body #body_nav a.green {
-  background: rgb(86, 169, 80);
+  background: #27ae60;
 }
 #body #body_nav a.orange {
-  background: rgb(193,133,20);
+  background: #e67e22;
 }
 
 #content {
@@ -139,6 +139,9 @@ body {
 }
 #content .slide#slide-astaire {
   background: url('images/projects/astaire.png') no-repeat;
+}
+#content .slide#slide-appstaire {
+  background: url('images/projects/appstaire.png') no-repeat;
 }
 #content .slide#slide-roccola {
   background: url('images/projects/roccola.png') no-repeat;
