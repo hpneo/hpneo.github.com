@@ -46,11 +46,25 @@ a {
   text-decoration: none;
 }
 
-.experience {
-  max-width: 640px;
+.content {
+  width: 100%;
   margin: 0 auto;
   text-align: justify;
   line-height: 1.5;
+  clear: both;
+}
+
+.content-column {
+  width: 50%;
+  float: left;
+}
+
+.content-column:first-child {
+  padding-right: 3em;
+}
+
+.content-column:last-child {
+  padding-left: 3em;
 }
 
 .experience-details {
@@ -67,4 +81,14 @@ a {
 
 .experience-details p {
   margin-top: 0;
+}
+
+@media (max-width: 960px) {
+  .content-column {
+    max-width: 640px;
+    width: 90%;
+    float: none;
+    margin: 0 auto;
+    padding: 0 !important;
+  }
 }
