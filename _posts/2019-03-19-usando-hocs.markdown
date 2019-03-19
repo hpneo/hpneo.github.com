@@ -104,7 +104,6 @@ export default withLocationInfo(SearchBox);
 
 Para luego utilizar el componente en:
 
-
 ```jsx
 class SearchForm extends React.Component {
   render() {
