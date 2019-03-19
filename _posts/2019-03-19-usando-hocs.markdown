@@ -98,6 +98,7 @@ class SearchBox extends React.Component {
   }
 }
 
+// Ejecuto el HOC withLocationInfo y le paso SearchBox como argumento
 export default withLocationInfo(SearchBox);
 ```
 
