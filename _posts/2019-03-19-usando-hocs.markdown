@@ -6,6 +6,8 @@ excerpt: "A veces necesitamos reutilizar lógica dentro de varios componentes de
 # categories: jekyll update
 ---
 
+![Usando Higher-Order Components](/assets/images/hocs.png)
+
 A veces debemos reutilizar lógica dentro de varios componentes de React.
 
 Por ejemplo, tengo dos problemas:
