@@ -1,0 +1,35 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.main-content {
+  code {
+    font-family: Monaco, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  }
+}
+
+.icon-link {
+  display: inline-block;
+}
+
+.site-navbar {
+  @extend.main-content;
+  max-width: 52rem;
+  padding: 0;
+  font-size: 0.9rem;
+
+  > * {
+    display: inline-block;
+    padding: 1rem;
+    border-right: solid 1px #eff0f1;
+
+    &:first-child {
+      border-left: solid 1px #eff0f1;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
