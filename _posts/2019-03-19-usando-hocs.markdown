@@ -12,10 +12,10 @@ A veces debemos reutilizar lógica dentro de varios componentes de React.
 
 Por ejemplo, tengo dos problemas:
 
-* Qué pasa si quiero acceder a la información del usuario logueado para ocultar / mostrar componentes según su nivel de acceso
-* Tengo una aplicación multi-región donde necesite mostrar información de moneda y fechas según el idioma del usuario.
+* ¿Qué pasa si quiero acceder a la información del usuario logueado para ocultar / mostrar componentes según su nivel de acceso?
+* Tengo una aplicación multi-región donde necesito mostrar información de moneda y fechas según el idioma del usuario.
 
-Y esto lo tengo que hacer no solo en uno, si en **varios** componentes. ¿Qué opciones tengo?
+Y esa implementación la tengo que hacer, no solo en una, si no en **varios** componentes. ¿Qué opciones tengo?
 
 Bueno, una de ellas es pasar _props_ de componentes padre a hijo, pero quizá no es la solución ideal porque tendrías que pasar _props_ en componentes que no los necesitan:
 
@@ -50,17 +50,17 @@ const Dashboard = ({ currency }) => (
 <Dashboard currency='USD' />
 ```
 
-Y en este caso, ¡sigues repitiendo código!
+Y en este caso, ¡sigues repitiendo código! Cada vez que necesitamos darle formato de moneda a un número, tenemos que llamar al componente `<FormatCurrency />`, pasándole el _prop_ `currency`.
 
 Aquí es donde entran los [**Higher-Order Components**](https://reactjs.org/docs/higher-order-components.html).
 
 Un Higher-Order Components es, como dice la documentación oficial:
 
-> Concretely, **a higher-order component is a function that takes a component and returns a new component**.
+> [...] **a function that takes a component and returns a new component**.
 
 Es decir, una función que toma un componente como parámetro y retorna un nuevo componente.
 
-Un Higher-Order Component (o HOC) lo que hace es encapsular lógica y crear un componente intermedio que renderice el componente que pasas como parámetro, con los mismos _props_ que recibiría el componente original, y posiblemente agregando nuevos _props_, propios del HOC.
+Un Higher-Order Component (o HOC) encapsula lógica y crea un componente intermedio que renderiza el componente que pasas como parámetro, con los mismos _props_ que recibiría el componente original, y posiblemente agregando nuevos _props_, propios del HOC.
 
 Por ejemplo, hagamos un HOC que lee la URL actual y pasa los _search params_ como _prop_:
 
@@ -125,7 +125,7 @@ Pero tener accesibles los _search params_ no solo sirven para cajas de búsqueda
 
 Ahora veamos cómo resolver las situaciones presentadas originalmente:
 
-> **Qué pasa si quiero acceder a la información del usuario logueado para ocultar / mostrar componentes según su nivel de acceso**
+> **¿Qué pasa si quiero acceder a la información del usuario logueado para ocultar / mostrar componentes según su nivel de acceso?**
 
 Podemos crear un HOC que tome la información del usuario logueado de alguna fuente (digamos, Redux o el Local Storage):
 
