@@ -17,7 +17,7 @@ Y esto lo tengo que hacer no solo en uno, si en **varios** componentes. ¿Qué o
 
 Bueno, una de ellas es pasar _props_ de componentes padre a hijo, pero quizá no es la solución ideal porque tendrías que pasar _props_ en componentes que no los necesitan:
 
-```js
+```jsx
 const App = ({ currentUser }) => (
   <div>
     <Header />
