@@ -40,6 +40,12 @@ system('ls ./app')
 
 `exec` ejecuta el comando y reemplaza el proceso actual (`irb` o de la aplicación que esté ejecutando `exec`) por un nuevo proceso (el que fue creado por `exec` para ejecutar el comando).
 
+```ruby
+exec('ls ./app')
+# admin		channels	decorators	jobs		mailers		queries		serializers	views
+# assets		controllers	helpers		listeners	models		responders	services
+```
+
 ----
 
 ## Algunos ejemplos
