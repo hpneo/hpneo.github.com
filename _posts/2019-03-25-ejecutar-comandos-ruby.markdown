@@ -55,11 +55,9 @@ Una herramienta de línea de comandos interesante de usar es [Rubocop](https://g
 De esta forma, podemos ejecutar Rubocop desde Ruby para obtener los resultados:
 
 ```ruby
-linter_result = `/bin/bash -c "cd #{directory_name} && rubocop --extra-details --format json #{existing_files.join(' ')}"`
+linter_result = `rubocop --extra-details --format json #{files_to_analyze.join(' ')}`
 JSON.parse(linter_result)
 ```
-
-> **Nota**: Uso `/bin/bash -c` para poder ejecutar varios comandos (en este caso `cd` y `rubocop`) dentro de una cadena.
 
 > **Nota**: Para `rubocop` utilizo dos flags: `--extra-details` devuelve una explicación breve de cada regla de Rubocop, y `--format json` devuelve los resultados en formato JSON.
 
