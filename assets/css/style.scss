@@ -81,6 +81,10 @@
   code {
     font-family: Monaco, Consolas, "Liberation Mono", Menlo, Courier, monospace;
   }
+
+  h2 code {
+    font-size: 1.5rem !important;
+  }
 }
 
 .icon-link {
