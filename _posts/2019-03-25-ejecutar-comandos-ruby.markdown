@@ -42,6 +42,8 @@ system('ls ./app')
 
 ----
 
+## Algunos ejemplos
+
 Una herramienta de línea de comandos interesante de usar es [Rubocop](https://github.com/rubocop-hq/rubocop). Rubocop permite hacer análisis estático de código en Ruby según una serie de reglas configurables, y permite retornar los resultados en distintos formatos, entre ellos JSON.
 
 De esta forma, podemos ejecutar Rubocop desde Ruby para obtener los resultados:
