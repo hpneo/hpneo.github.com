@@ -5,6 +5,8 @@ date:   2019-03-25 13:15:57 -0600
 excerpt: "Podemos hacer uso de comandos de terminal desde Ruby a través de varias formas"
 ---
 
+![Ejecutando comandos desde Ruby](/assets/images/backticks.png)
+
 Hay muchas herramientas de línea de comandos (o CLI) que son útiles en el día a día, pero que en ocasiones también podrían ayudarnos a desarrollar otras herramientas más complejas.
 
 Antes de llegar a ello, veamos cómo se pueden ejecutar comandos desde Ruby:
