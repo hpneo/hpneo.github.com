@@ -17,6 +17,7 @@ title: Gustavo Leon
 email: gmleonr@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Full-stack web developer. Man out of time.
+lang: es
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
