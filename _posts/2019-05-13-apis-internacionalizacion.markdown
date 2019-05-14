@@ -119,6 +119,8 @@ console.log(formatterESOr.format(items));
 // Iron Man, Captain America o Thor
 ```
 
+> **Nota:**: Existe [un bug en español](https://github.com/tc39/proposal-intl-list-format/issues/45) para _"y"_ u _"o"_ cuando la última palabra empieza con _"i"_/_"hi"_ u _"o"_/_"ho"_, respectivamente.
+
 ----
 
 Usualmente, para formatear fechas o monedas teníamos que recurrir a algunas bibliotecas, o escribir código más complejo. Con las APIs de Internacionalización nos ahorramos agregar más dependencias a nuestra aplicación.
