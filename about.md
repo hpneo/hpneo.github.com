@@ -12,6 +12,12 @@ I'm a full-stack web developer with experience in JavaScript and Ruby. I have 10
 
 I worked in some amazing companies building incredible products, and even created one of my own!
 
+### **Able**
+
+#### Software Engineer (_March 2019 - Present_)
+
+* Working on multiple projects, studio and portfolio.
+
 ### **Runa**
 
 #### Head of Engineering (_Oct 2017 - Feb 2019_)
