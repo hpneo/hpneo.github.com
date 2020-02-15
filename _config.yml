@@ -28,6 +28,7 @@ markdown: kramdown
 theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 show_downloads: false
 google_analytics: UA-1524848-16
