@@ -20,8 +20,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 lang: es
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: hpneo
+github_username:  hpneo
 
 # Build settings
 markdown: kramdown
@@ -31,6 +31,9 @@ plugins:
 
 show_downloads: false
 google_analytics: UA-1524848-16
+twitter:
+  username: hpneo
+  card: summary
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
