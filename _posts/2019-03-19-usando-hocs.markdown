@@ -3,6 +3,7 @@ layout: post
 title:  "Usando Higher-Order Components"
 date:   2019-03-19 01:15:57 -0600
 excerpt: "A veces necesitamos reutilizar lógica dentro de varios componentes de React. Los Higher-Order Components son una manera elegante de lograrlo."
+image: /assets/images/hocs.png
 ---
 
 ![Usando Higher-Order Components](/assets/images/hocs.png)

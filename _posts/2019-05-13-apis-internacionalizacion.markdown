@@ -3,6 +3,7 @@ layout: post
 title:  "APIs de Internacionalización en JavaScript"
 date:   2019-05-13 09:15:57 -0500
 excerpt: "Con las APIs de Internacionalización del navegador podemos formatear fechas y números para diferentes idiomas"
+image: /assets/images/intl.png
 ---
 
 ![APIs de Internacionalización en JavaScript](/assets/images/intl.png)

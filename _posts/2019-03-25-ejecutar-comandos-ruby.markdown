@@ -3,6 +3,7 @@ layout: post
 title:  "Ejecutando comandos desde Ruby"
 date:   2019-03-25 13:15:57 -0600
 excerpt: "Podemos hacer uso de comandos de terminal desde Ruby a través de varias formas"
+image: /assets/images/backticks.png
 ---
 
 ![Ejecutando comandos desde Ruby](/assets/images/backticks.png)

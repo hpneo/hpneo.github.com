@@ -3,6 +3,7 @@ layout: post
 title:  "Aprendiendo a usar arrays en JavaScript"
 date:   2020-02-15 18:15:00 -0500
 excerpt: "Los arrays (o arreglos) son un tipo especial de objetos y representan colecciones que pueden guardar cualquier tipo de dato."
+image: /assets/images/arrays-js.png
 ---
 
 ![Aprendiendo a usar arrays en JavaScript](/assets/images/arrays-js.png)
