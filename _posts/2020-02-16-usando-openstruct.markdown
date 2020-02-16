@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Usando OpenStruct"
-date:   2020-02-16 10:00:00 -0500
+date:   2020-02-16 11:30:00 -0500
 excerpt: "OpenStruct es una estructura de datos de Ruby que permite crear objetos que reciban cualquier atributo de manera dinámica."
 image: /assets/images/openstruct.png
 ---
@@ -119,4 +119,4 @@ pages_created_in_2019 = pages.filter { |page| page.created_at.year == 2019 }
 #=> [#<Page title="APIs de Internacionalizacion en JavaScript", slug="/2019-05-13-apis-internacionalizacion.html">, #<Page title="Ejecutando comandos desde Ruby", slug="/2019-03-25-ejecutar-comandos-ruby.html">, #<Page title="Usando Higher-Order Components", slug="/2019-03-19-usando-hocs.html">]
 ```
 
-De esta forma, podemos hacer más escribiendo un poco menos, ahorrándonos varios `attr_accessor` y definir un método `initialize` para `Page`.
+De esta forma, podemos hacer más escribiendo un poco menos, ahorrándonos varios `attr_accessor` y tener que definir un método `initialize` para `Page`.
