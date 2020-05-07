@@ -115,3 +115,25 @@
     }
   }
 }
+
+.two-columns {
+  display: flex;
+}
+
+.mermaid {
+  font-family: Monaco, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 10px;
+  opacity: 0%;
+  zoom: 1.25;
+  transition: opacity 700ms ease-in;
+  transition-delay: 350ms;
+}
+
+.mermaid[data-processed=true] {
+  opacity: 100%;
+}
+
+.mermaid g.classGroup text {
+  font-family: Monaco, Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+  font-size: 10px !important;
+}
