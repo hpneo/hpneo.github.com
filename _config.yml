@@ -34,7 +34,7 @@ show_downloads: false
 google_analytics: UA-1524848-16
 twitter:
   username: hpneo
-  card: summary
+  card: summary_large_image
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
