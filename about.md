@@ -8,6 +8,10 @@ Hi, I'm Gustavo Leon. You may remember me from such amazing projects as [gmaps](
 
 I'm a full-stack web developer with experience in JavaScript and Ruby. I have 10 years of experience working with projects in different industries, from digital campaigns to HR, e-commerce and SaaS products.
 
+1. [Experience](#experience)
+2. [Presentations (in Spanish)](#presentations-in-spanish)
+3. [Side projects](#side-projects)
+
 ## Experience
 
 I worked in some amazing companies building incredible products, and even created one of my own!
@@ -56,7 +60,7 @@ I worked in some amazing companies building incredible products, and even create
 
 ---
 
-### JavaScript Instructor (_Jan 2013 - Dec 2013 | Apr 2014 - Aug 2014_)
+### **JavaScript Instructor (_Jan 2013 - Dec 2013 | Apr 2014 - Aug 2014_)**
 
 * Taught JavaScript for beginners, oriented to frontend development.
 * Topics included: variables, functions, DOM, HTML5 APIs, Basic jQuery, XHR, Promises, Basic Testing with Jasmine and SPAs with Backbone.js.
@@ -94,9 +98,25 @@ What I learned building an open source project.
 
 ---
 
-## Other projects
+## Side projects
 
-In my spare time I did other projects that helped the community in one way or another.
+In my spare time I so other projects that helped the community in one way or another.
+
+### [ActiveWorksheet](https://hpneo.dev/active_worksheet)
+
+Ruby gem used to read local spreadsheet files (XLS, XLSX and CSV) and present them as ActiveRecord/ActiveResource objects, mapping rows as records and columns and attributes.
+
+### [ScrapKit](https://hpneo.dev/scrap_kit)
+
+Ruby gem used to automate web scraping and convert the results in plain objects by using configuration objects (called recipes).
+
+### [Metalink](https://hpneo.dev/metalink)
+
+Web service that extracts information from URLs and provide uniformed and structured data using OpenGraph, oEmbed and JSON-LD.
+
+### [SlideMark](https://slidemark.app/)
+
+Web application to create powerful presentations using Markdown.
 
 ### [gmaps.js](https://hpneo.github.com/gmaps) (Stalled)
 
