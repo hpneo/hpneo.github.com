@@ -2,7 +2,7 @@
 layout: post
 title:  "Web scraping y análisis de datos con Ruby"
 date:   2020-07-12 13:30:00 -0500
-excerpt: "Con ActiveWorksheet y ScrapKit pude construir un pequeño análisis de ofertas inmobiliarias en las últimas semanas"
+excerpt: "Con ActiveWorksheet y ScrapKit pude construir un pequeño análisis de ofertas inmobiliarias en las últimas semanas."
 image: /assets/images/m2-cli.png
 ---
 
