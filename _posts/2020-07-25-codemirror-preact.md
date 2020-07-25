@@ -77,7 +77,7 @@ function createBoomarks(cm) {
 }
 ```
 
-Luego, para poder aplicar los bookmarks sin bloquear el editor, o generar varios cambios dentro del mismo, usaremos el método `operation` de CodeMirror.
+Luego, para poder aplicar los bookmarks sin bloquear el editor, lo que evitaría que el usuario pueda escribir, usaremos el método `operation` de CodeMirror.
 
 Este método permite pasarle un _callback_ que puede contener varios cambios y operaciones en el editor, pero que se aplicará como un solo cambio dentro de CodeMirror, mejorando la performance de nuestras operaciones.
 
