@@ -8,9 +8,9 @@ image: /assets/images/codemirror-preact.png
 
 ![Creando bookmarks de CodeMirror con Preact](/assets/images/codemirror-preact.png)
 
-[CodeMirror](https://codemirror.net/) es una de mis bibliotecas favoritas y la que más utilizo cuando se trata de implementar un editor de texto plano. Una de las funcionalidades que estoy explorando ahora es la de los llamado _bookmarks_.
+[CodeMirror](https://codemirror.net/) es una de mis bibliotecas favoritas y la que más utilizo cuando se trata de implementar un editor de texto plano. Una de las funcionalidades que estoy explorando ahora es la de los llamados _bookmarks_.
 
-Un _bookmark_ es una marca dentro del editor que está asociado a una posición específica (línea y columna) y puede contener un nodo del DOM. Los _bookmarks_ son útiles para extender la funcionalidad del editor y proveer acciones dentro de un contexto específico (por ejemplo [`codemirror-colorpicker`](https://github.com/easylogic/codemirror-colorpicker) agrega un _color picker_ en un _bookmark_ cuando encuentra un color dentro del texto).
+Un _bookmark_ es una marca dentro del editor que está asociado a una posición específica (línea y columna) y puede contener un nodo del DOM. Los _bookmarks_ son útiles para extender la funcionalidad del editor y proveer acciones dentro de un contexto específico (por ejemplo **[`codemirror-colorpicker`](https://github.com/easylogic/codemirror-colorpicker)** agrega un _color picker_ en un _bookmark_ cuando encuentra un color dentro del texto).
 
 Lo interesante es que, al contener un nodo del DOM, el _bookmark_ puede recibir eventos, con lo que podemos usar JavaScript para [agregarle eventos](https://cevichejs.com/3-dom-cssom.html#eventos). O, podríamos usar una biblioteca que nos permita simplificar ese trabajo, e incluso reutilizar otras partes de nuestro código.
 
@@ -52,7 +52,7 @@ Este primer paso es bastante directo, y si no utilizas Preact (o React), tambié
 
 ## Creando el component del _bookmark_ con Preact
 
-El siguiente paso es crear el componente que irá dentro del _bookmark_. En este caso, el componente es un simple botón que, al hacer click, llamará al prop `onClick`, pasándole la fecha y hora actual como cadena.
+El siguiente paso es crear el componente que irá dentro del _bookmark_. En este caso, el componente es un simple botón que, al hacer click, llamará al prop `onClick`, pasándole la fecha y hora actual como una cadena.
 
 ```jsx
 export default function NowButton({ onClick }) {
@@ -118,9 +118,9 @@ function createBoomarks(cm) {
 }
 ```
 
-Aquí hay algo importante a considerar. Dado que el texto de nuestro editor puede cambiar repetidas veces, es necesario guardar una referencia de nuestros _bookmarks_ en caso necesitemos eliminarlos antes del siguiente cambio.
+Aquí hay algo importante a considerar. Dado que el texto de nuestro editor puede cambiar varias veces (porque el usuario edita el texto), es necesario guardar una referencia de nuestros _bookmarks_ en caso necesitemos eliminarlos antes del siguiente cambio.
 
-Es por eso que CodeMirror nos da un objeto `state`, donde podemos definir estados para el editor. En nuestro caso, usaremos `state` para crear un objeto `bookmarks` donde las llaves serán los números de línea, y los valores serán los _bookmarks_.
+Es por eso que CodeMirror nos da un objeto `cm.state`, donde podemos definir estados para el editor. En nuestro caso, usaremos `state` para crear un objeto `bookmarks` donde las llaves serán los números de línea, y los valores serán los _bookmarks_.
 
 > **Nota:** En nuestro caso, las llaves del objeto `cm.state.bookmarks` son los números de línea porque se asume que nuestros _bookmarks_ solo aparecen una vez por línea. Pero en otros casos podría ser una combinación de línea y caracter u otro.
 
@@ -142,7 +142,7 @@ function createBoomarks(cm) {
       // widget.style.verticalAlign = "middle";
       // widget.style.height = "14px";
 
-      // Aquí definimos el valor del prop `onClick`. Recordemos que esta función recibe la fecha y hora local como cadena.
+      // Aquí definimos el valor del prop `onClick`. Recordemos que esta función recibe la fecha y hora local como una cadena.
       function setDate(date) {
         // `cm.doc.replaceRange` va a reemplazar cualquier texto que exista luego de "date:" con el valor que reciba la función `setDate`.
         cm.doc.replaceRange(
@@ -170,7 +170,7 @@ function createBoomarks(cm) {
 }
 ```
 
-Por último, debemos definir un _init hook_. Un _init hook_ en CodeMirror es una función que se va a llamar al crear un editor. Esto es útil si sabemos que el editor tendrá un valor inicial y queremos crear nuestros _bookmarks_ al inicio. Pero no solo eso, también es aquí donde guardaremos un estado con los _bookmarks_.
+Por último, debemos definir un _init hook_. Un _init hook_ en CodeMirror es una función que se va a llamar al crear un editor. Esto es útil si sabemos que el editor tendrá un valor inicial y queremos crear nuestros _bookmarks_ inmediatamente después de crear el editor. Pero no solo eso, también es aquí donde guardaremos un estado con los _bookmarks_.
 
 También vamos a requerir asociarnos a un evento `change`, que permitirá ejecutar nuestra función `createBoomarks` (la que va a crear los _bookmarks_) cada vez que haya un cambio en el editor.
 
@@ -196,6 +196,9 @@ function createBoomarks(cm) {
       cm.state.bookmarks[lineNumber].clear();
       delete cm.state.bookmarks[lineNumber];
     });
+
+    // cm.eachLine(lineHandle => {
+    // ...
   });
 }
 ```
@@ -205,7 +208,7 @@ function createBoomarks(cm) {
 **¿Por qué es importante desmontar los componentes antes de llamar a `clear()`?** Por dos motivos:
 
 1. Si solo llamamos a `clear()`, CodeMirror eliminará el nodo del DOM (el famoso `widget`), pero Preact seguirá manteniendo una instancia del componente para ese nodo y no liberará memoria (los ya conocidos _memory leaks_).
-2. Al desmontar los componentes con `render(null, widget)` también logramos que los componentes se desuscriban de sus propios _side effects_. Si no desmontamos, un (hipotético) `setInterval` seguirá llamándose incluso luego de haber eliminado el _bookmark_, o un `fetch` seguirá tratando de finalizar un request aunque el editor esté completamente vacío.
+2. Al desmontar los componentes con `render(null, widget)` también logramos que los componentes se desuscriban de sus propios _side effects_. Si no desmontamos el componente, un (hipotético) `setInterval` seguirá llamándose incluso luego de haber eliminado el _bookmark_, o un `fetch` podría seguir en ejecución tratando de finalizar un request aunque el editor esté completamente vacío.
 
 ---
 
@@ -277,3 +280,7 @@ Y aquí un ejemplo en vivo:
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
+
+---
+
+Esto es solo una exploración de lo que podría hacerse con los _bookmarks_ de CodeMirror y una biblioteca de componentes como Preact. Algo que creo que vale la pena seguir revisando es ver cómo lograr mantener un estado entre _unmounts_ del mismo componente, o en su defecto hacer un _diff_ inteligente para borrar solo algunos _bookmarks_ y no todos en cada operación.
