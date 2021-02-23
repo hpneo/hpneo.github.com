@@ -119,7 +119,7 @@ Si queremos ir un paso más allá, podemos hacer algunas mejoras a `getDOMState`
 function getDOMState(elementID) {
   const initialDataElement = document.getElementById(elementID);
 
-  if (initialDataElement || initialDataElement.textContent) {
+  if (initialDataElement && initialDataElement.textContent) {
     const initialData = JSON.parse(initialDataElement.textContent);
 
     return initialData;
