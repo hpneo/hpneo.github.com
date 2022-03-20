@@ -16,7 +16,7 @@
 title: Gustavo Leon
 email: gmleonr@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Full-stack web developer. Man out of time.
+  Full-stack web developer.
 lang: es
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://hpneo.dev" # the base hostname & protocol for your site, e.g. http://example.com
