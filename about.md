@@ -16,9 +16,15 @@ I'm a full-stack web developer with experience in JavaScript and Ruby. I have 10
 
 I worked in some amazing companies building incredible products, and even created one of my own!
 
+### **Yuhu / HappyCo**
+
+#### Software Engineer (_May 2022 - Present_)
+
+* Working in a new version of the main product, using Ruby on Rails and React.
+
 ### **Able**
 
-#### Software Engineer (_March 2019 - Present_)
+#### Software Engineer (_March 2019 - April 2022_)
 
 * Working on multiple projects, studio and portfolio.
 
