@@ -8,11 +8,13 @@ image: /assets/images/fs-router.png
 
 ![Creando un router basado en archivos con Preact, preact-router y Parcel](/assets/images/fs-router.png)
 
+> Para este ejercicio estoy utilizando [Parcel](https://parceljs.org/), una _build tool_ simple de usar y configurable a partir de plugins.
+
 Un _router_ basado en archivos permite que una aplicación _client-side_ pueda armar sus rutas utilizando archivos como base. Esta convención es utilizada por frameworks como [Next.js](https://nextjs.org/) o [Remix](https://remix.run/), por nombrar algunos.
 
 Gracias a esta convención, organizar archivos se vuelve una tarea mucho más sencilla, ya que existe una relación un poco más directa entre las rutas que ven los usuarios en su navegador con la estructura de archivos que ven los programadores al desarrollar una aplicación web frontend.
 
-En este post vamos a ver cómo crear un router basado en archivos utilizando Preact, [`preact-router`](https://www.npmjs.com/package/preact-router) y [Parcel](https://parceljs.org/).
+Como un ejercicio para aprender cómo funciona el plugin de _resolver_ de [Parcel](https://parceljs.org/), vamos a ver cómo crear un router basado en archivos utilizando Preact y [`preact-router`](https://www.npmjs.com/package/preact-router).
 
 > Este acercamiento a tener un _router_ basado en archivos es experimental y más un ejercicio inicial que una implementación lista para producción.
 
@@ -46,11 +48,12 @@ render(<Router />, document.body);
 
 Un _resolver_ en Parcel toma un specifier (lo que comúnmente es la ruta de un archivo o el nombre de un módulo de NPM) y devuelve un resultado que luego es usado por otros [_resolvers_](https://parceljs.org/features/plugins/#resolvers) o por [_transformers_](https://parceljs.org/features/plugins/#transformers).
 
-El _resolver_ que tenemos que escribir interceptará los `import` a `@hpneo/router` y devolverá un [_virtual module_](https://parceljs.org/plugin-system/resolver/#virtual-modules). Esto significa que a pesar de que estamos escribiendo `import Router from "@hpneo/router"`, realmente no existe un módulo `@hpneo/router` ni en NPM ni en ningún otro _package manager_.
+El _resolver_ que escribiremos interceptará los `import` a `@hpneo/router` y devolverá el código que le indiquemos, también llamado [_virtual module_](https://parceljs.org/plugin-system/resolver/#virtual-modules), porque el módulo definido por el _specifier_ no existe "físicamente" como un archivo en la carpeta del proyecto.
 
 Lo primero que haremos será escribir la estructura básica de un _resolver_:
 
 ```js
+// ./parcel-resolver-router/index.mjs
 import { Resolver } from "@parcel/plugin";
 import path from "path";
 
@@ -70,7 +73,9 @@ export default new Resolver({
 
 Este _resolver_ actualmente solo devuelve un _virtual module_ vacío. Sin embargo, contiene 2 detalles importantes a tener en cuenta: `specifier` es el nombre del módulo que estamos interceptando, y `options` contiene una propiedad llamada `projectRoot`, que devuelve la ruta desde donde Parcel está ejecutándose.
 
-El siguiente paso es obtener todos los archivos que nos servirán para armar nuestras rutas. En este caso usaremos la convención de Next.js y su nuevo [App Router](https://nextjs.org/docs/app/building-your-application/routing), y usaremos [`fast-glob`](https://www.npmjs.com/package/fast-glob) para obtener todos los archivos llamados `page.js`:
+El siguiente paso es obtener todos los archivos que nos servirán para armar nuestras rutas. En este caso usaremos la convención de Next.js y su nuevo [App Router](https://nextjs.org/docs/app/building-your-application/routing), y usaremos [`fast-glob`](https://www.npmjs.com/package/fast-glob) para obtener todos los archivos llamados `page.js`.
+
+El siguiente bloque de código va dentro del método `resolve` de nuestro plugin:
 
 ```js
 import glob from "fast-glob";
@@ -95,6 +100,7 @@ const files = await glob("./app/**/page.js", {
 Una vez que tenemos las rutas de todos los archivos, vamos a iterar por cada uno de ellos para obtener la ruta de la aplicación a partir de la ruta del archivo:
 
 ```js
+// ./parcel-resolver-router/index.mjs
 const DYNAMIC_ROUTE_SEGMENT_PATTERN = /\[([a-zA-Z]*)\]/;
 const CATCH_ALL_SEGMENT_PATTERN = /\[(\.\.\.([a-zA-Z]*))\]/;
 const ROUTE_GROUP_PATTERN = /\(([a-zA-Z_-]*)\)/;
@@ -118,7 +124,7 @@ function buildRouteFromFilePath(filePath) {
 }
 ```
 
-Como lo que estamos retornando en el _resolver_ es un _virtual module_, vamos a actualizar el código:
+Como lo que estamos retornando en el _resolver_ es un _virtual module_, vamos a actualizar el código dentro del método `resolve` de nuestro plugin:
 
 ```js
 const files = await glob("./app/**/page.js", {
@@ -156,7 +162,7 @@ En nuestro caso, si tenemos un _layout_ en `./app/organizations/[subdomain]/layo
 * `/organizations/:subdomain/courses/:identifier/:section/:lesson`
 * `/organizations/:subdomain/users`
 
-Sin embargo, no se renderizará en la siguiente ruta:
+Sin embargo, el _layout_ no se renderizará en la siguiente ruta:
 
 * `/organizations/new`
 
@@ -219,6 +225,7 @@ Ahora que ya tenemos una colección de rutas, vamos a usar `preact-router` para 
 Pero antes de hacer eso debemos entender que hay rutas que pueden estar anidadas, por lo que debemos convertir nuestro _array_ en un árbol. Para eso, agregamos la siguiente función al código del _virtual module_:
 
 ```js
+// Este bloque de código va dentro de la variable `code`, como parte del código del virtual module:
 import sortBy from "lodash/sortBy";
 import partition from "lodash/partition";
 
@@ -261,6 +268,7 @@ function createRoutesFromPages(pages) {
 Dado que las rutas van a estar anidadas, necesitamos un componente especial que pueda ser usando del router de `preact-router`. Este componente se llama `Route` y va a manejar todos los posibles escenarios de nuestra aplicación:
 
 ```js
+// Este bloque de código va dentro de la variable `code`, como parte del código del virtual module:
 import { h, Fragment } from "preact";
 import Router from "preact-router";
 
@@ -303,6 +311,7 @@ function Route({ path, component, layout, childRoutes = [], ...routeProps }) {
 Finalmente, creamos nuestro componente `<ApplicationRouter />`, el cual tendrá todas las rutas creadas con `<Route />` en base al resultado de `createRoutesFromPages`:
 
 ```js
+// Este bloque de código va dentro de la variable `code`, como parte del código del virtual module:
 function ApplicationRouter() {
   const routes = createRoutesFromPages(pages);
 

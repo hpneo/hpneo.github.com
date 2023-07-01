@@ -10,7 +10,7 @@ image: /assets/images/storybook.png
 
 [Storybook](https://storybook.js.org/) permite mostrar en un solo lugar los componentes que utilizas en tu aplicación. Esto es útil si tienes componentes reutilizables y quieres documentar cómo se ven y cómo se usan sin necesidad de ir al código.
 
-Como un ejercicio para aprender cómo funcionan los plugins de [Parcel](https://parceljs.org/), vamos a crear un clon de Storybook.
+Como un ejercicio para aprender cómo funcionan el plugin de _transformer_ de [Parcel](https://parceljs.org/), vamos a crear un clon de Storybook.
 
 ## Component Story Format (o CSF)
 
@@ -56,7 +56,7 @@ Ahora que ya sabemos como funciona una _story_, vamos a crear nuestro propio Sto
 
 Para poder listar todas las _stories_ que existen en nuestro proyecto, necesitamos primero importar todos los archivos JavaScript que terminen en `.stories.js`. Para lograr esta primera tarea usaremos un paquete llamado [`@parcel/resolver-glob`](https://www.npmjs.com/package/@parcel/resolver-glob).
 
-Los _resolvers_ se encargan de resolver un [_import_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), ya sea convirtiendo el _specifier_ de un `import` (lo que comunmente es el nombre del módulo) en la ruta absoluta de un archivo o retornando código. Esto último se conoce como virtual module, porque el módulo definido por el _specifier_ no existe "físicamente" como un archivo.
+Los _resolvers_ se encargan de resolver un [_import_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import), ya sea convirtiendo el _specifier_ de un `import` (lo que comunmente es el nombre del módulo) en la ruta absoluta de un archivo o retornando código. Esto último se conoce como _virtual module_, porque el módulo definido por el _specifier_ no existe "físicamente" como un archivo.
 
 Lo que hace `@parcel/resolver-glob` es utilizar el _specifier_ como si fuera un patrón llamado _glob_, y retorna un objeto con todos los módulos que cumplen con el patrón.
 
