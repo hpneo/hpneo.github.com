@@ -379,4 +379,4 @@ Si quisieramos soportar otras [convenciones de nombres de archivos](https://next
 
 ---
 
-El código completo del plugin de Parcel lo puedes encontrar en este Gist: https://gist.github.com/hpneo/c9e9e61e9d530d6c412163f20d8a7df4
+El código completo del plugin de Parcel lo puedes encontrar en este Gist: [https://gist.github.com/hpneo/c9e9e61e9d530d6c412163f20d8a7df4](https://gist.github.com/hpneo/c9e9e61e9d530d6c412163f20d8a7df4)
