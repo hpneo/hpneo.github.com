@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Creando un router basado en archivos con Preact, preact-router y Parcel"
-date:   2021-06-30 19:30:00 -0500
+date:   2023-06-30 19:30:00 -0500
 excerpt: "Con un plugin de Parcel podemos tener nuestro propio router basado en archivos, como los usados en Next.js o Remix."
 image: /assets/images/fs-router.png
 ---
