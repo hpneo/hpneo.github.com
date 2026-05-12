@@ -6,7 +6,7 @@ permalink: /about/
 
 Hi, I'm Gustavo Leon. You may remember me from such amazing projects as [gmaps](https://hpneo.dev/gmaps "gmaps.js: Google Maps API with less pain and more fun"), CodePicnic or [Runa](https://runahr.com "Payroll and HR software for SMB").
 
-I'm a full-stack web developer with experience in JavaScript and Ruby. I have 10 years of experience working with projects in different industries, from digital campaigns to HR, e-commerce and SaaS products.
+I'm a full-stack web developer with experience in JavaScript and Ruby. I have 10+ years of experience working with projects in different industries, from digital campaigns to HR, e-commerce and SaaS products.
 
 1. [Experience](#experience)
 2. [Presentations (in Spanish)](#presentations-in-spanish)
@@ -16,9 +16,15 @@ I'm a full-stack web developer with experience in JavaScript and Ruby. I have 10
 
 I worked in some amazing companies building incredible products, and even created one of my own!
 
+### **Able**
+
+#### Software Engineer (_August 2025 - Present_)
+
+* Worked on internal tools and client projects.
+
 ### **Yuhu / HappyCo**
 
-#### Software Engineer (_May 2022 - Present_)
+#### Software Engineer (_May 2022 - August 2025_)
 
 * Working in a new version of the main product, using Ruby on Rails and React.
 
@@ -26,7 +32,7 @@ I worked in some amazing companies building incredible products, and even create
 
 #### Software Engineer (_March 2019 - April 2022_)
 
-* Working on multiple projects, studio and portfolio.
+* Worked on multiple projects, studio and portfolio.
 
 ### **Runa**
 
