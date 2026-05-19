@@ -112,7 +112,15 @@ What I learned building an open source project.
 
 ## Side projects
 
-In my spare time I so other projects that helped the community in one way or another.
+In my spare time I built other projects that helped the community in one way or another.
+
+### [BrickGestor](https://brickgestor.app)
+
+Inventory management for small LEGO stores, built with Ruby on Rails, Inertia.js, TypeScript, TailwindCSS.
+
+### [CourseBook](https://coursebook.app)
+
+Course management SaaS to create async courses using text and multimedia. Used: Ruby on Rails, Inertia.js, TypeScript, TailwindCSS.
 
 ### [ActiveWorksheet](https://hpneo.dev/active_worksheet)
 
